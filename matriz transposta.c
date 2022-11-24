@@ -27,9 +27,9 @@ int main(void) {
   int mat[x][x];
 
   /*printf ("\nInsira os valores da Matriz:\n");
-  for (int i = 0; i < x; ++i) {
-    for (int j = 0; j < x; ++j) {
-      printf ("%dº Linha - %dº Coluna: ", i+1, j+1);
+  for (int i = 0; i < x; i++) {
+    for (int j = 0; j < x; j++) {
+      printf ("%d Linha - %d Coluna: ", i+1, j+1);
       scanf ("%d", &mat[i][j]);
     }
     printf ("\n");
