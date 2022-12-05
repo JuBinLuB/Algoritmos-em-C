@@ -3,7 +3,7 @@
 #include <string.h>
 #include <locale.h>
 
-typedef struct {
+typedef struct livro_est{
     
     char titulo[150];
     char autor[150];
@@ -18,7 +18,7 @@ void dados(livro vetor[], int tam) {
     for (int i = 0; i < tam; i++) {
         printf ("%dº Livro...\n", i+1);
         
-        printf ("Informe o titulo: ");
+        printf ("Informe o título: ");
         fflush(stdin);
         fgets(vetor[i].titulo, 149, stdin);
 
@@ -26,9 +26,9 @@ void dados(livro vetor[], int tam) {
         fflush(stdin);
         fgets(vetor[i].autor, 149, stdin);
 
-        printf ("Informe o preco nos ultimos 6 meses:\n");
+        printf ("Informe o preço nos últimos 6 meses:\n");
         for (int j = 0; j < 6; j++) {
-            printf ("%dº mes: ", j+1);
+            printf ("%dº mês: ", j+1);
             scanf ("%f", &vetor[i].preco[j]);
         }
         printf ("\n");
