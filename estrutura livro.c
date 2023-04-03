@@ -16,9 +16,9 @@ void dados(livro vetor[], int tam) {
     printf ("Insira os seguintes dados dos livros:\n\n");
 
     for (int i = 0; i < tam; i++) {
-        printf ("%dÂº Livro...\n", i+1);
+        printf ("%dº Livro...\n", i+1);
         
-        printf ("Informe o tÃ­tulo: ");
+        printf ("Informe o título: ");
         fflush(stdin);
         fgets(vetor[i].titulo, 149, stdin);
 
@@ -26,9 +26,9 @@ void dados(livro vetor[], int tam) {
         fflush(stdin);
         fgets(vetor[i].autor, 149, stdin);
 
-        printf ("Informe o preÃ§o nos Ãºltimos 6 meses:\n");
+        printf ("Informe o preço nos últimos 6 meses:\n");
         for (int j = 0; j < 6; j++) {
-            printf ("%dÂº mÃ©s: ", j+1);
+            printf ("%dº mês: ", j+1);
             scanf ("%f", &vetor[i].preco[j]);
         }
         printf ("\n");
@@ -44,7 +44,7 @@ void imprime(livro vetor[], int tam) {
             soma[i] += vetor[i].preco[j];
             soma[i] /= 6;
         }
-        printf ("\nO preÃ§o mÃ©dio do %dÂº livro Ã©: %.2f\n", i+1, soma[i]);
+        printf ("\nO preço médio do %dº livro é: %.2f\n", i+1, soma[i]);
     }
 }
 
