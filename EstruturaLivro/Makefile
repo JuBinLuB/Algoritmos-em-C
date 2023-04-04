@@ -1,10 +1,21 @@
+#Constantes contendo os diretórios dos arquivos do projeto.
+APPS = ./apps
+BIN = ./bin
+INCLUDE = ./include
+OBJ = ./obj
+SRC = ./src
 
-all:
-	gcc -c ./src/livros.c -I ./include -o ./obj/livros.o
-	gcc ./apps/main.c ./obj/*.o -I ./include -o ./bin/main
+#
+all: lib main
+
+lib:
+	gcc -c $(SRC)/livros.c -I $(INCLUDE) -o $(OBJ)/livros.o
+
+main:
+	gcc $(APPS)/main.c $(OBJ)/*.o -I $(INCLUDE) -o $(BIN)/main
 
 run:
-	./bin/main
+	$(BIN)/main
 
 clean:
-	rm ./bin/* ./obj/*
+	rm $(BIN)/* $(OBJ)/*
