@@ -3,7 +3,7 @@
 #include <string.h>
 #include "livros.h"
 
-void dados(Livro *livro, int tam) {
+void setInfo(Livro *livro, int tam) {
 
     printf("Insira os seguintes dados dos livros:\n\n");
 
@@ -27,7 +27,7 @@ void dados(Livro *livro, int tam) {
     }
 }
 
-void imprimir(Livro *livro, int tam) {
+void printInfo(Livro *livro, int tam) {
 
     float soma = 0;
 

@@ -9,8 +9,8 @@ int main(void) {
 
     Livro *p = (Livro *)malloc(5 * sizeof(Livro));
 
-    dados(p, 5);
-    imprimir(p, 5);
+    setInfo(p, 5);
+    printInfo(p, 5);
 
     free(p);
     return 0;

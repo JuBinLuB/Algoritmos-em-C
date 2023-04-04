@@ -7,8 +7,8 @@ typedef struct Livro_est{
     float preco[6];
 } Livro;
 
-void dados(Livro *livro, int tam);
+void setInfo(Livro *livro, int tam);
 
-void imprimir(Livro *livro, int tam);
+void printInfo(Livro *livro, int tam);
 
 #endif // LIVROS_H_INCLUDED
