@@ -1,11 +1,12 @@
 #Constantes recebendo os diretórios dos arquivos do projeto.
 APPS = ./apps
 BIN = ./bin
-FLAGS = -o3 -Wall
 INCLUDE = ./include
 LIB = ./lib
 OBJ = ./obj
 SRC = ./src
+
+FLAGS = -o3 -Wall
 
 #Dependências de diretivas na target "all:".
 #"all:" é chamada toda vez que o arquivo "Makefile" for executado.
