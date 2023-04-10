@@ -1,25 +1,37 @@
 #Constantes recebendo os diretórios dos arquivos do projeto.
 APPS = ./apps
 BIN = ./bin
+FLAGS = -o3 -Wall
 INCLUDE = ./include
+LIB = ./lib
 OBJ = ./obj
 SRC = ./src
 
 #Dependências de diretivas na target "all:".
-#Logo, toda vez que o arquivo "Makefile" for executado...
-#... o mesmo irá executar, em ordem de inserção, as targets "lib:" e "main:".
-all: lib main
+#"all:" é chamada toda vez que o arquivo "Makefile" for executado.
+#Em seguida, "all:" irá chamar as targets "lib:" e "main:", em ordem de inserção.
+all: lib myapps
 
 #Dependências de diretivas na target "lib:".
-#Logo, quando a target "all:" for chamada e, em seguida, chamar a target "lib:"...
-#... a mesma irá chamar a target "%.o", através do respectivo arquivo "livros.o".
-lib: livros.o
+#"lib:" é chamada logo após "all:" iniciar sua execução.
+#Logo, "lib:" irá chamar a target "$(OBJ)/%.o", através do respectivo arquivo "$(OBJ)/livros.o".
+lib: \
+	$(OBJ)/livros.o
+	ar -rcs $(LIB)/libel.a $(OBJ)/*.o
 
-main:
-	gcc $(APPS)/main.c $(OBJ)/*.o -I $(INCLUDE) -o $(BIN)/main
+#Dependências de diretivas na target "main:".
+#"main:" é chamada após "lib:" finalizar sua execução.
+#Logo, "main:" irá chamar a target "$(BIN)/%", através do respectivo arquivo "$(BIN)/main".
+myapps: \
+	$(BIN)/main
 
-%.o: $(SRC)/%.c $(INCLUDE)/%.h
-	gcc -c $< -I $(INCLUDE) -o $(OBJ)/$@
+#Target genérica para compilação dos Tipos Abstratos de Dados.
+$(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/%.h
+	gcc $(FLAGS) -c $< -I $(INCLUDE) -o $@
+
+#Target genérica para compilação do programa.
+$(BIN)/%: $(APPS)/%.c $(OBJ)/*.o
+	gcc $(FLAGS) $< $(OBJ)/*.o -I $(INCLUDE) -o $@
 
 run:
 	$(BIN)/main
