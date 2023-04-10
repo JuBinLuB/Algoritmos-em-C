@@ -31,11 +31,11 @@ $(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/%.h
 	gcc $(FLAGS) -c $< -I $(INCLUDE) -o $@
 
 #Target genérica para compilação do programa.
-$(BIN)/%: $(APPS)/%.c $(OBJ)/*.o
-	gcc $(FLAGS) $< $(OBJ)/*.o -I $(INCLUDE) -o $@
+$(BIN)/%: $(APPS)/%.c $(LIB)/*.a
+	gcc $(FLAGS) $< $(LIB)/libel.a -I $(INCLUDE) -o $@
 
 run:
 	$(BIN)/main
 
 clean:
-	rm -rf $(BIN)/* $(OBJ)/*
+	rm -rf $(BIN)/* $(LIB)/* $(OBJ)/*
