@@ -11,7 +11,7 @@ LIBS = -l livro -L $(LIB)
 
 #Dependências de diretivas na target "all:".
 #"all:" é chamada toda vez que o arquivo "Makefile" for executado.
-#Em seguida, "all:" irá chamar as targets "lib:" e "main:", em ordem de inserção.
+#Em seguida, "all:" irá chamar as targets "lib:" e "myapps:", em ordem de inserção.
 all: lib myapps
 
 #Dependências de diretivas na target "lib:".
@@ -20,9 +20,9 @@ all: lib myapps
 lib: $(OBJ)/livros.o
 	ar -rcs $(LIB)/liblivro.a $(OBJ)/*.o
 
-#Dependências de diretivas na target "main:".
-#"main:" é chamada após "lib:" finalizar sua execução.
-#Logo, "main:" irá chamar a target "$(BIN)/%", através do respectivo arquivo "$(BIN)/main".
+#Dependências de diretivas na target "myapps:".
+#"myapps:" é chamada após "lib:" finalizar sua execução.
+#Logo, "myapps:" irá chamar a target "$(BIN)/%", através do respectivo arquivo "$(BIN)/main".
 myapps: clean_apps \
 	$(BIN)/main
 
