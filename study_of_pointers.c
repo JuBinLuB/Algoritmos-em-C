@@ -4,7 +4,6 @@
 int main(int argc, char *argv[]) {
 
     // >>>>>>>> sizeof of Types <<<<<<<<
-
     printf("sizeof(int) = %lld\n", sizeof(int));
     printf("sizeof(short) = %lld\n", sizeof(short));
     printf("sizeof(long) = %lld\n", sizeof(long));
@@ -18,7 +17,6 @@ int main(int argc, char *argv[]) {
     printf("sizeof(double *) = %lld\n", sizeof(double *));
 
     // >>>>>>>> POINTERS AND POINTERS OF POINTERS <<<<<<<<
-
     int a = 10;
     int *p1 = &a;
     int **p2 = &p1;
@@ -39,7 +37,6 @@ int main(int argc, char *argv[]) {
     printf("***&p2 = %d\n", ***&p2);    // ***(&p2) = **p2 = **(&p1) = *(&a) = 10.
 
     // >>>>>>>> OPERATIONS WITH POINTERS <<<<<<<<
-
     int a, b, *p1, *p2;
 
     a = 4;
